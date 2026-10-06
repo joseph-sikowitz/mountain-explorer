@@ -5,15 +5,20 @@ body {
   font-style: normal;
 }
 
-.navbar-custom, .footer-custom {
-  background-color: #07820f;
+main {
+  background-image: linear-gradient(to top, #03540c, #9fe0a6);
+}
+
+.navbar-custom {
+  background-color: #9fe0a6;
 }
 
 .navbar-text, .footer-text {
   color: #ffffff;
 }
 
-.footer {
+footer {
+  background-color: #03540c;
   position: fixed;
   bottom: 0;
   width: 100%;
