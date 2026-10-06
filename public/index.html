@@ -33,33 +33,65 @@
   </head>
   <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">Mountain Explorer</a>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-custom">
+      <div class="container-fluid">
+        <a class="navbar-brand navbar-text px-5" href="index.html"
+          >Mountain Explorer</a
+        >
       </div>
       <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          aria-current="page"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 px-5">
-            <li class="nav-item px-5">
-              <a class="nav-link" href="#">Login</a>
-            </li>
-          </ul>
-        </div>
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        aria-current="page"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 px-5">
+          <li class="nav-item px-5">
+            <a class="nav-link navbar-text" href="#">Login</a>
+          </li>
+        </ul>
+      </div>
     </nav>
+    <!-- End navbar -->
 
-    <main></main>
-    <footer></footer>
+    <!-- Main content -->
+    <main>
+      <div class="container">
+        <!-- Hero section -->
+        <section class="hero mt-xxl-6 mt-xl-4 mt-md-4 mt-sm-4 mt-3">
+          <img
+            src="img/dolomites-1.jpg"
+            class="img-fluid mx-auto d-block w-50 rounded-pill"
+            alt="Hikers in the Dolomites"
+          />
+          <h1 class="display-4 text-center">Welcome to Mountain Explorer</h1>
+          <p class="lead text-center">
+            Discover the beauty of hiking and exploring the great outdoors.
+          </p>
+        </section>
+        <!-- End hero section -->
+      </div>
+    </main>
+    <!-- End main content -->
+
+    <!-- Footer -->
+    <footer
+      class="footer navbar navbar-expand-lg bottom-0 mt-auto footer-custom"
+    >
+      <div class="container-fluid">
+        <p class="footer-text">
+          &copy; 2026 Mountain Explorer. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <!-- End footer -->
 
     <!-- CDN and local Javascript files-->
     <script

@@ -4,3 +4,17 @@ body {
   font-weight: 500;
   font-style: normal;
 }
+
+.navbar-custom, .footer-custom {
+  background-color: #07820f;
+}
+
+.navbar-text, .footer-text {
+  color: #ffffff;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
