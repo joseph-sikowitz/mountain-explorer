@@ -1,0 +1,34 @@
+{
+  "name": "mountain-explorer",
+  "version": "1.0.0",
+  "description": "Mountain Explorer is a hiking management and planning application where users can search for mountains and trails, manage their account, and save favorite hikes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joseph-sikowitz/mountain-explorer.git"
+  },
+  "keywords": [],
+  "authors": [
+    "Joseph Sikowitz",
+    "Thai Ken Yong"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/joseph-sikowitz/mountain-explorer/issues"
+  },
+  "homepage": "https://github.com/joseph-sikowitz/mountain-explorer#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.12.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jest": "^29.16.6",
+    "eslint-plugin-prettier": "^5.5.6",
+    "globals": "^17.13.0",
+    "jest": "^30.5.2",
+    "prettier": "^3.9.9"
+  }
+}
