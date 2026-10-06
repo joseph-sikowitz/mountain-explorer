@@ -12,7 +12,11 @@
       content="Mountain Explorer is a hiking management and planning application where users can search for mountains and trails, manage their account, and save favorite hikes."
     />
     <!-- TODO:Add Favicon -->
-    <link rel="icon" type="image/x-icon" href="#" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="img/mountain-explorer-icon.ico"
+    />
 
     <!-- CDN and local stylesheets, Google fonts-->
     <link
@@ -25,35 +29,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
     <link rel="stylesheet" href="css/index.css" />
   </head>
-  <body class="d-flex flex-column min-vh-100">
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-custom">
+  <body class="d-flex flex-column vh-100 mb-auto">
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-light navbar-expand-lg sticky-top">
       <div class="container-fluid">
-        <a class="navbar-brand navbar-text px-5" href="index.html"
-          >Mountain Explorer</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          aria-current="page"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="img/mountain-explorer-logo-navbar.jpg"
+            alt="Mountain Explorer Logo"
+            class="logo px-5"
+          />
+        </a>
+        <div>
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 px-5">
             <li class="nav-item">
-              <a class="nav-link navbar-text" href="#">Login</a>
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
             </li>
           </ul>
         </div>
@@ -61,33 +65,57 @@
     </nav>
     <!-- End navbar -->
 
-    <!-- Main content -->
-    <main class="flex-grow-1 container-fluid d-flex flex-column overflow-auto">
+    <main class="container">
       <!-- Hero section -->
-      <section class="hero text-center d-flex flex-column flex-grow-1 py-3">
-        <img
-          src="img/dolomites-1.jpg"
-          class="hero-img mx-auto rounded-pill"
-          alt="Hikers in the Dolomites"
-        />
-        <h1 class="display-4 mt-3">Welcome to Mountain Explorer</h1>
-        <p class="lead">
-          Discover the beauty of hiking and exploring the great outdoors.
-        </p>
-      </section>
+      <div class="row buffer">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 divider">
+          <div class="hero text-center hero-custom">
+            <h1 class="hero-title">
+              Start your <br /><span>journey here</span>
+            </h1>
+            <p class="hero-subtitle">
+              Join our community of hikers and explore the great outdoors.
+            </p>
+            <button href="#" class="btn btn-primary hero-button">
+              Register
+            </button>
+            <button href="#" class="btn btn-primary hero-button">Login</button>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
       <!-- End hero section -->
-    </main>
-    <!-- End main content -->
 
-    <!-- Footer -->
-    <footer class="navbar navbar-expand-lg mt-auto">
-      <div class="container-fluid">
-        <p class="footer-text">
-          &copy; 2026 Mountain Explorer. All rights reserved.
-        </p>
+      <!-- Stats section -->
+      <div class="row buffer">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div class="text-center divider">
+            <h2 class="h1">By the numbers</h2>
+            <div class="stats">
+              <div>
+                <h3 class="stat-number">1,000+</h3>
+                <h3 class="stat-label">Mountains & Trails</h3>
+              </div>
+              <div>
+                <h3 class="stat-number">500+</h3>
+                <h3 class="stat-label">Active Hikers</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <!-- End stats section -->
+    </main>
+
+    <!-- Footer section -->
+    <footer class="footer mt-auto py-3">
+      <div class="container text-center">
+        <span class="footer-text">&copy; 2026 Mountain Explorer. All rights reserved.</span>
       </div>
     </footer>
-    <!-- End footer -->
 
     <!-- CDN and local Javascript files-->
     <script
