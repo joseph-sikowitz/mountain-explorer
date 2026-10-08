@@ -9,28 +9,51 @@ const mountainsRouter = express.Router();
 const database = db();
 await database.connect();
 
+// Used to build Mongo query string from URL parameters
+function filterQuery(query) {
+  const { name, country, typical_weather, latitude, longitude } = query;
+
+  const mongoQuery = {};
+
+  if (name && typeof name === "string" && name.trim()) {
+    mongoQuery.name = name;
+  }
+  if (country && typeof country === "string" && country.trim()) {
+    mongoQuery.country = country;
+  }
+  if (
+    typical_weather &&
+    typeof typical_weather === "string" &&
+    typical_weather.trim()
+  ) {
+    mongoQuery.typical_weather = typical_weather;
+  }
+  if (latitude && latitude.trim() && !isNaN(Number(latitude))) {
+    mongoQuery.latitude = Number(latitude);
+  }
+  if (longitude && longitude.trim() && !isNaN(Number(longitude))) {
+    mongoQuery.longitude = Number(longitude);
+  }
+
+  return mongoQuery;
+}
+
 mountainsRouter.get("/mountains", async (req, res) => {
   if (!database.isActiveDb()) {
     return res.status(500).json({ error: "Database connection error." });
   }
 
   try {
-    if (req.query.name) {
+    if (req.query) {
+      const mongoQuery = filterQuery(req.query);
+      const limit =
+        req.query.limit && !isNaN(Number(req.query.limit))
+          ? Number(req.query.limit)
+          : 10;
       const dbResult = await database.queryCollection(
         process.env.MONGODB_COLLECTION_MOUNTAINS,
-        { name: req.query.name }
-      );
-      return res.status(200).json(dbResult);
-    } else if (req.query.country) {
-      const dbResult = await database.queryCollection(
-        process.env.MONGODB_COLLECTION_MOUNTAINS,
-        { country: req.query.country }
-      );
-      return res.status(200).json(dbResult);
-    } else if (req.query.weather) {
-      const dbResult = await database.queryCollection(
-        process.env.MONGODB_COLLECTION_MOUNTAINS,
-        { typical_weather: req.query.weather }
+        mongoQuery,
+        limit
       );
       return res.status(200).json(dbResult);
     } else {
