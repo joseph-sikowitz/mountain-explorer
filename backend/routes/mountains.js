@@ -1,6 +1,7 @@
 import express from "express";
 import db from "../database/db.js";
 import dotenv from "dotenv";
+import { ObjectId } from "mongodb";
 
 const LIMIT_DEFAULT = 10;
 
@@ -70,6 +71,27 @@ mountainsRouter.get("/mountains", async (req, res) => {
   } catch (error) {
     console.error("GET error for /api/mountains: ", error);
     return res.status(500).json({ error: "GET error for /api/mountains" });
+  }
+});
+
+// GET endpoint for /api/mountains/:id
+mountainsRouter.get("/mountains/:id", async (req, res) => {
+  // Check if we have a database connection
+  if (!database.isActiveDb()) {
+    return res.status(500).json({ error: "Database connection error" });
+  }
+
+  try {
+    const collection = await database.getCollection(
+      process.env.MONGODB_COLLECTION_MOUNTAINS
+    );
+    const record = await collection.findOne({
+      _id: new ObjectId(req.params.id),
+    });
+    return res.status(200).json(record);
+  } catch (error) {
+    console.error("GET error for /api/mountains/:id: ", error);
+    return res.status(500).json({ error: "GET error for /api/mountains/:id" });
   }
 });
 
