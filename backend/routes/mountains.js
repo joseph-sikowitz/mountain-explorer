@@ -8,4 +8,4 @@ const mountain = await db.queryCollection(
   }
 );
 
-console.log("Mountain: ", mountain);
+console.log("Mountain: ", mountain[0]);
