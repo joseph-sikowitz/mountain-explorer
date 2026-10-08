@@ -2,6 +2,8 @@ import express from "express";
 import db from "../database/db.js";
 import dotenv from "dotenv";
 
+const LIMIT_DEFAULT = 10;
+
 dotenv.config({ quiet: true });
 
 const mountainsRouter = express.Router();
@@ -54,7 +56,7 @@ mountainsRouter.get("/mountains", async (req, res) => {
       const limit =
         req.query.limit && !isNaN(Number(req.query.limit))
           ? Number(req.query.limit)
-          : 10;
+          : LIMIT_DEFAULT;
       // Perform query on database
       const dbResult = await database.queryCollection(
         process.env.MONGODB_COLLECTION_MOUNTAINS,
