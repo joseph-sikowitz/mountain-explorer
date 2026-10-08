@@ -11,17 +11,27 @@ export default function database() {
   const client = new MongoClient(process.env.MONGODB_URI);
   let db;
 
-  async function connect() {
+  // Connect to database
+  me.connect = async () => {
     if (!db) {
       await client.connect();
       db = client.db(process.env.MONGODB_NAME);
     }
     return db;
-  }
+  };
+
+  // Check if database connection active
+  me.isActiveDb = () => {
+    if (!db) {
+      return false;
+    }
+
+    return true;
+  };
 
   // Get a collection in the database
   me.getCollection = async (collectionName) => {
-    const database = await connect();
+    const database = await me.connect();
     return database.collection(collectionName);
   };
 
