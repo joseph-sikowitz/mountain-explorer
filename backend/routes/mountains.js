@@ -21,6 +21,18 @@ mountainsRouter.get("/mountains", async (req, res) => {
         { name: req.query.name }
       );
       return res.status(200).json(dbResult);
+    } else if (req.query.country) {
+      const dbResult = await database.queryCollection(
+        process.env.MONGODB_COLLECTION_MOUNTAINS,
+        { country: req.query.country }
+      );
+      return res.status(200).json(dbResult);
+    } else if (req.query.weather) {
+      const dbResult = await database.queryCollection(
+        process.env.MONGODB_COLLECTION_MOUNTAINS,
+        { typical_weather: req.query.weather }
+      );
+      return res.status(200).json(dbResult);
     } else {
       return res.status(404).json({ error: "Name not found" });
     }
