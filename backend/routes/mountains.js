@@ -41,6 +41,27 @@ function filterQuery(query) {
   return mongoQuery;
 }
 
+// GET for total documents
+mountainsRouter.get("/mountains/count", async (req, res) => {
+  // Check if we have a database connection
+  if (!database.isActiveDb()) {
+    return res.status(500).json({ error: "Database connection error" });
+  }
+
+  try {
+    // GET mountains collection
+    const collection = await database.getCollection(
+      process.env.MONGODB_COLLECTION_MOUNTAINS
+    );
+    const count = await collection.countDocuments({});
+    console.log(count);
+    return res.status(200).json({ mountainsTotal: count });
+  } catch (error) {
+    console.error("Error getting mountains count: ", error);
+    return res.status(500).json({ error: "Error getting mountains count" });
+  }
+});
+
 // GET endpoint for /api/mountains
 mountainsRouter.get("/mountains", async (req, res) => {
   // Check if we have a database connection
