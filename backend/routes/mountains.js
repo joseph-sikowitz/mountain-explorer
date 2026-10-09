@@ -66,7 +66,12 @@ mountainsRouter.get("/mountains", async (req, res) => {
       );
       return res.status(200).json(dbResult);
     } else {
-      return res.status(404).json({ error: "GET error no parameters" });
+      // Perform query on database with no parameters
+      const dbResult = await database.queryCollection(
+        process.env.MONGODB_COLLECTION_MOUNTAINS,
+        {}
+      );
+      return res.status(200).json(dbResult);
     }
   } catch (error) {
     console.error("GET error for /api/mountains: ", error);
