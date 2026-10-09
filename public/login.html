@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register - Mountain Explorer</title>
+    <title>Login - Mountain Explorer</title>
 
     <!-- Required meta info -->
     <meta name="author" content="Thai Ken Yong" />
@@ -52,7 +52,7 @@
               <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.html">Login</a>
+              <a class="nav-link" href="register.html">Register</a>
             </li>
           </ul>
         </div>
@@ -60,13 +60,13 @@
     </nav>
     <!-- End navbar -->
 
-    <!-- Registration form with first name, last name, email, state, country and password -->
+    <!-- Login form with first name, last name, email, state, country and password -->
     <main class="container">
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <h1>Create Account</h1>
+          <h1>Login</h1>
 
-          <form id="register-form">
+          <form id="login-form">
             <div class="mb-3">
               <label for="email" class="form-label">Email Address</label>
               <input
@@ -89,52 +89,10 @@
               />
             </div>
 
-            <div class="mb-3">
-              <label for="first-name" class="form-label">First Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="first-name"
-                name="firstName"
-                required
-              />
-            </div>
-
-            <div class="mb-3">
-              <label for="last-name" class="form-label">Last Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="last-name"
-                name="lastName"
-                required
-              />
-            </div>
-
-            <div class="mb-3">
-              <label for="state" class="form-label">State</label>
-              <select class="form-select" id="state" name="state" required>
-                <option value="">Select a state</option>
-              </select>
-            </div>
-
-            <div class="mb-3">
-              <label for="country" class="form-label">Country</label>
-              <input
-                type="text"
-                class="form-control"
-                id="country"
-                name="country"
-                value="USA"
-                readonly
-              />
-            </div>
-
             <button type="submit" class="btn btn-primary">
-              Create Account
+              Login
             </button>
-            <!-- Display registration success or error message -->
-            <div id="register-message" class="mt-3"></div>
+            <div id="login-message" class="mt-3"></div>
           </form>
         </div>
       </div>
@@ -155,6 +113,6 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="js/register.js"></script>
+    <script type="module" src="js/login.js"></script>
   </body>
 </html>

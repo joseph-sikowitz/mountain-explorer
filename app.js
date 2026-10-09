@@ -1,5 +1,5 @@
 import express from "express";
-import usersRouter from "./routes/users.js";
+import usersRouter from "./backend/routes/users.js";
 import mountainsRouter from "./backend/routes/mountains.js";
 
 const app = express();

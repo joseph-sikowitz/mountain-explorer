@@ -64,6 +64,9 @@ for (const state of states) {
 
 const registerForm = document.querySelector("#register-form");
 
+// Get the element used to display registration messages
+const registerMessage = document.querySelector("#register-message");
+
 // Add an event listener to the form submission to prevent the default behavior and log the form data
 registerForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -81,7 +84,16 @@ registerForm.addEventListener("submit", async (event) => {
     body: JSON.stringify(user),
   });
 
-  const result = await response.text();
+  // Convert the server response from JSON into a JavaScript object
+  const result = await response.json();
 
-  console.log(result);
+  // Display success or error message to the user
+  if (response.ok) {
+    registerMessage.textContent = result.message;
+    registerMessage.className = "alert alert-success mt-3";
+    registerForm.reset();
+  } else {
+    registerMessage.textContent = result.error;
+    registerMessage.className = "alert alert-danger mt-3";
+  }
 });
