@@ -8,10 +8,10 @@ await database.connect();
 // POST /api/users - CREATE a new user
 router.post("/", async (req, res) => {
   try {
-    const { firstName, lastName, state, country, email, password } = req.body;
+    const { firstName, lastName, country, email, password } = req.body;
 
     // Check that all required fields were provided
-    if (!firstName || !lastName || !state || !country || !email || !password) {
+    if (!firstName || !lastName || !country || !email || !password) {
       return res.status(400).json({
         error: "All fields are required",
       });
@@ -34,7 +34,6 @@ router.post("/", async (req, res) => {
     const user = {
       firstName,
       lastName,
-      state,
       country,
       email,
       password,
@@ -114,7 +113,6 @@ router.get("/:email", async (req, res) => {
     res.status(200).json({
       firstName: user.firstName,
       lastName: user.lastName,
-      state: user.state,
       country: user.country,
       email: user.email,
       role: user.role,

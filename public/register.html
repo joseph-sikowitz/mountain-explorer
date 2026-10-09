@@ -60,7 +60,7 @@
     </nav>
     <!-- End navbar -->
 
-    <!-- Registration form with first name, last name, email, state, country and password -->
+    <!-- Registration form with first name, last name, email, country and password -->
     <main class="container">
       <div class="row justify-content-center">
         <div class="col-md-6">
@@ -112,22 +112,10 @@
             </div>
 
             <div class="mb-3">
-              <label for="state" class="form-label">State</label>
-              <select class="form-select" id="state" name="state" required>
-                <option value="">Select a state</option>
-              </select>
-            </div>
-
-            <div class="mb-3">
               <label for="country" class="form-label">Country</label>
-              <input
-                type="text"
-                class="form-control"
-                id="country"
-                name="country"
-                value="USA"
-                readonly
-              />
+              <select class="form-select" id="country" name="country" required>
+                <option value="">Select a country</option>
+              </select>
             </div>
 
             <button type="submit" class="btn btn-primary">

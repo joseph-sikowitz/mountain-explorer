@@ -21,7 +21,6 @@ async function loadProfile() {
       document.querySelector("#first-name").textContent = user.firstName;
       document.querySelector("#last-name").textContent = user.lastName;
       document.querySelector("#email").textContent = user.email;
-      document.querySelector("#state").textContent = user.state;
       document.querySelector("#country").textContent = user.country;
     } else {
       profileMessage.textContent = user.error;
