@@ -6,6 +6,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static("public"));
 
+app.use(express.json());
+
 app.use("/api", mountainsRouter);
 
 app.listen(PORT, () => {
