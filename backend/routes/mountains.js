@@ -208,7 +208,7 @@ mountainsRouter.post("/mountains", async (req, res) => {
         longitude: longitude,
         image_url: image_url,
       });
-      // POST returns
+      // POST returns {acknowledged, insertedId}
       return res.status(200).json(postResult);
     } else {
       console.error("POST error for /api/mountains ");
@@ -219,6 +219,30 @@ mountainsRouter.post("/mountains", async (req, res) => {
     // PUT request error
     console.error("POST error for /api/mountains ", error);
     return res.status(500).json({ error: "POST error for /api/mountains" });
+  }
+});
+
+// DELETE endpoint for /api/mountains/:id
+mountainsRouter.delete("/mountains/:id", async (req, res) => {
+  // Check if we have a database connection
+  if (!database.isActiveDb()) {
+    return res.status(500).json({ error: "Database connection error" });
+  }
+
+  try {
+    // DELETE for a single ID
+    const collection = await database.getCollection(
+      process.env.MONGODB_COLLECTION_MOUNTAINS
+    );
+    const result = await collection.deleteOne({
+      _id: new ObjectId(req.params.id),
+    });
+    return res.status(200).json(result);
+  } catch (error) {
+    console.error("DELETE error for /api/mountains/:id: ", error);
+    return res
+      .status(500)
+      .json({ error: "DELETE error for /api/mountains/:id" });
   }
 });
 
