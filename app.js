@@ -11,6 +11,8 @@ app.use(express.json());
 // Ken: When a request starts with /api/users, hand that request to the router in routes/users.js.
 app.use("/api/users", usersRouter);
 
+app.use(express.json());
+
 app.use("/api", mountainsRouter);
 
 app.listen(PORT, () => {
