@@ -87,6 +87,7 @@ mountainsRouter.get("/mountains/:id", async (req, res) => {
   }
 
   try {
+    // GET for a single ID
     const collection = await database.getCollection(
       process.env.MONGODB_COLLECTION_MOUNTAINS
     );
@@ -97,6 +98,70 @@ mountainsRouter.get("/mountains/:id", async (req, res) => {
   } catch (error) {
     console.error("GET error for /api/mountains/:id: ", error);
     return res.status(500).json({ error: "GET error for /api/mountains/:id" });
+  }
+});
+
+// PUT endpoint for /api/mountains/:id
+mountainsRouter.put("/mountains/:id", async (req, res) => {
+  // Check if we have a database connection
+  if (!database.isActiveDb()) {
+    return res.status(500).json({ error: "Database connection error" });
+  }
+
+  try {
+    // Required: all fields except for ID since ID is passed in path
+    const {
+      name,
+      height,
+      country,
+      typical_weather,
+      latitude,
+      longitude,
+      image_url,
+    } = req.body;
+
+    // Only do PUT if all fields are present
+    if (
+      name &&
+      height &&
+      country &&
+      typical_weather &&
+      latitude &&
+      longitude &&
+      image_url
+    ) {
+      // Connect to collection
+      const collection = await database.getCollection(
+        process.env.MONGODB_COLLECTION_MOUNTAINS
+      );
+      // Update one record where the ID matches, set all other variables to those from body
+      const putResult = await collection.updateOne(
+        { _id: new ObjectId(req.params.id) },
+        {
+          $set: {
+            name,
+            height,
+            country,
+            typical_weather,
+            latitude,
+            longitude,
+            image_url,
+          },
+        }
+      );
+      // PUT returns {acknowledged, modifiedCount, upsertedId, upsertedCount, matchedCount}
+      return res.status(200).json(putResult);
+    } else {
+      console.error("PUT error for /api/mountains/:id: ");
+      // User error
+      return res
+        .status(422)
+        .json({ error: "PUT error for /api/mountains/:id" });
+    }
+  } catch (error) {
+    // PUT request error
+    console.error("PUT error for /api/mountains/:id: ", error);
+    return res.status(500).json({ error: "PUT error for /api/mountains/:id" });
   }
 });
 
