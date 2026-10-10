@@ -75,7 +75,12 @@ async function displayFavorites(favorites) {
 
       // Mountain name
       const mountainName = document.createElement("h2");
-      mountainName.textContent = mountain.name;
+
+      const mountainLink = document.createElement("a");
+      mountainLink.href = `mountain.html?id=${favorite.mountain_id}`;
+      mountainLink.textContent = mountain.name;
+
+      mountainName.append(mountainLink);
 
       // Trail name
       const trailName = document.createElement("h3");
@@ -86,6 +91,10 @@ async function displayFavorites(favorites) {
       const statusLabel = document.createElement("label");
       statusLabel.className = "form-label";
       statusLabel.textContent = "Status";
+
+      // Display update messages for this favorite
+      const cardMessage = document.createElement("div");
+      cardMessage.className = "mt-3";
 
       // For status, we will show in dropdown and the options are "Planned" and "Completed" only.
       const statusSelect = document.createElement("select");
@@ -119,7 +128,7 @@ async function displayFavorites(favorites) {
 
       const notesInput = document.createElement("textarea");
       notesInput.className = "form-control mb-3";
-      notesInput.rows = 5;
+      notesInput.rows = 3;
       notesInput.value = favorite.personal_notes || "";
 
       // Date added - display only
@@ -138,7 +147,8 @@ async function displayFavorites(favorites) {
           favorite._id,
           statusSelect.value,
           plannedDateInput.value,
-          notesInput.value
+          notesInput.value,
+          cardMessage
         );
       });
 
@@ -156,6 +166,7 @@ async function displayFavorites(favorites) {
         mountainImage,
         mountainName,
         trailName,
+        cardMessage,
         statusLabel,
         statusSelect,
         dateLabel,
@@ -184,7 +195,8 @@ async function updateFavorite(
   favoriteId,
   status,
   plannedHikeDate,
-  personalNotes
+  personalNotes,
+  cardMessage
 ) {
   try {
     const response = await fetch(`/api/favorites/${favoriteId}`, {
@@ -202,19 +214,18 @@ async function updateFavorite(
     const result = await response.json();
 
     if (!response.ok) {
-      favoritesMessage.textContent =
-        result.error || "Unable to update favorite.";
-      favoritesMessage.className = "alert alert-danger";
+      cardMessage.textContent = result.error || "Unable to update favorite.";
+      cardMessage.className = "alert alert-danger mt-3";
       return;
     }
 
-    favoritesMessage.textContent = "Favorite updated successfully!";
-    favoritesMessage.className = "alert alert-success";
+    cardMessage.textContent = "Favorite updated successfully!";
+    cardMessage.className = "alert alert-success mt-3";
   } catch (error) {
     console.error("Error updating favorite:", error);
 
-    favoritesMessage.textContent = "Unable to update favorite.";
-    favoritesMessage.className = "alert alert-danger";
+    cardMessage.textContent = "Unable to update favorite.";
+    cardMessage.className = "alert alert-danger mt-3";
   }
 }
 

@@ -49,10 +49,7 @@
         <div>
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 px-5">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Logout</a>
+              <a class="nav-link" id="logout" href="#">Logout</a>
             </li>
           </ul>
         </div>
@@ -70,38 +67,72 @@
           <div id="profile-message"></div>
 
           <!-- Display user information -->
-          <div id="profile">
-            <p>
-              <strong>First Name:</strong>
-              <span id="first-name"></span>
-            </p>
+          <div id="profile" class="card mt-3">
+            <div class="card-body">
+              <div class="row mb-3">
+                <div class="col-sm-4">
+                  <strong>First Name</strong>
+                </div>
+                <div class="col-sm-8">
+                  <span id="first-name"></span>
+                </div>
+              </div>
 
-            <p>
-              <strong>Last Name:</strong>
-              <span id="last-name"></span>
-            </p>
+              <div class="row mb-3">
+                <div class="col-sm-4">
+                  <strong>Last Name</strong>
+                </div>
+                <div class="col-sm-8">
+                  <span id="last-name"></span>
+                </div>
+              </div>
 
-            <p>
-              <strong>Email:</strong>
-              <span id="email"></span>
-            </p>
+              <div class="row mb-3">
+                <div class="col-sm-4">
+                  <strong>Email</strong>
+                </div>
+                <div class="col-sm-8">
+                  <span id="email"></span>
+                </div>
+              </div>
 
-            <p>
-              <strong>Country:</strong>
-              <span id="country"></span>
-            </p>
+              <div class="row">
+                <div class="col-sm-4">
+                  <strong>Country</strong>
+                </div>
+                <div class="col-sm-8">
+                  <span id="country"></span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- MOVE THESE INSIDE col-md-6 -->
+          <!-- Explore actions -->
           <div class="mt-4">
+            <h2 class="h5 mb-3">Explore</h2>
+
+            <div class="d-flex gap-2 flex-wrap">
+              <a href="mountain-search.html" class="btn btn-primary">
+                Search Mountains
+              </a>
+
+              <a href="favorites.html" class="btn btn-primary">
+                My Favorites
+              </a>
+            </div>
+          </div>
+
+          <!-- Account actions -->
+          <div class="mt-4">
+            <h2 class="h5 mb-3">Account</h2>
+
             <a href="update-password.html" class="btn btn-primary">
               Update Password
             </a>
-          </div>
+            <!-- Delete account -->
 
-          <div class="mt-3">
             <button type="button" id="delete-account" class="btn btn-danger">
-              Delete this account
+              Delete Account
             </button>
           </div>
 
@@ -126,5 +157,6 @@
       crossorigin="anonymous"
     ></script>
     <script type="module" src="js/profile.js"></script>
+    <script type="module" src="js/logout.js"></script>
   </body>
 </html>
