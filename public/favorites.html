@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Favorites - Mountain Explorer</title>
+
+    <!-- Required meta info -->
+    <meta name="author" content="Thai Ken Yong" />
+    <meta
+      name="description"
+      content="Mountain Explorer is a hiking management and planning application where users can search for mountains and trails, manage their account, and save favorite hikes."
+    />
+    <!-- TODO:Add Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="img/mountain-explorer-icon.ico"
+    />
+
+    <!-- CDN and local stylesheets, Google fonts-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body class="d-flex flex-column vh-100 mb-auto">
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-light navbar-expand-lg sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="img/mountain-explorer-logo-navbar.jpg"
+            alt="Mountain Explorer Logo"
+            class="logo px-5"
+          />
+        </a>
+        <div>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 px-5">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End navbar -->
+
+    <!-- Favorites section -->
+    <main class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <h1>My Favorites</h1>
+
+          <div id="favorites-message"></div>
+
+          <section id="favorites-results">
+            <!-- Favorite trails will be rendered here by favorites.js -->
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer section -->
+    <footer class="footer mt-auto py-3">
+      <div class="container text-center">
+        <span class="footer-text"
+          >&copy; 2026 Mountain Explorer. All rights reserved.</span
+        >
+      </div>
+    </footer>
+
+    <!-- CDN and local Javascript files-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="js/favorites.js"></script>
+  </body>
+</html>
