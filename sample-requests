@@ -1,0 +1,8 @@
+ curl -X POST -H "Content-Type: application/json" -d  '{"name":"Pinatubo","height":18112,"country":"Philippines","typical_weather":"sun
+ny","latitude":11.09876,"longitude":3.45677,"image_url":"public/img/dolomites-5.jpg"}' "http://localhost:3000/api/mountains"
+{"acknowledged":true,"insertedId":"6ac9572dc263c27826a59381"}
+
+ curl -X PUT -H "Content-Type: application/json" -d  '{"name":"Pinatubo","height":18112,"country":"Philippines","typical_weather":"rainy","latitude":11.09876,"longitude":3.45677,"image_url":"public/img/dolomites-5.jpg"}' "http://localhost:3000/api/mountains/6ac9572dc263c
+27826a59381"
+
+curl -X DELETE "http://localhost:3000/api/mountains/6ac9572dc263c27826a59381"
