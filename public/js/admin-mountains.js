@@ -1,4 +1,5 @@
 import addNewMountainsListener from "./admin-mountains-new.js";
+import addEditMountainsListener from "./admin-mountains-edit.js";
 
 // Get the email and role of the user who logged in
 const userEmail = sessionStorage.getItem("userEmail");
@@ -22,6 +23,7 @@ function addMountainsListener() {
       <button id="search-mountains" class="btn btn-primary admin-btn" type="button">Search to Edit</button>`;
 
     addNewMountainsListener();
+    addEditMountainsListener();
   });
 }
 
