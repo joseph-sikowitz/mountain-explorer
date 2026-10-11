@@ -1,3 +1,5 @@
+ ##Mountains
+ 
  curl -X POST -H "Content-Type: application/json" -d  '{"name":"Pinatubo","height":18112,"country":"Philippines","typical_weather":"sun
 ny","latitude":11.09876,"longitude":3.45677,"image_url":"public/img/dolomites-5.jpg"}' "http://localhost:3000/api/mountains"
 {"acknowledged":true,"insertedId":"6ac9572dc263c27826a59381"}
@@ -6,3 +8,11 @@ ny","latitude":11.09876,"longitude":3.45677,"image_url":"public/img/dolomites-5.
 27826a59381"
 
 curl -X DELETE "http://localhost:3000/api/mountains/6ac9572dc263c27826a59381"
+
+##Trails
+
+curl -v -X PUT -H "Content-Type: application/json" -d  '{"name":"Corrine Alessandrelli","difficulty":2,"time_needed_to_hike":5,"equipment_needed":["pack cover", "ski goggles"], "tent_sites_available":false}' "http://localhost:3000/api/trails/6acac4e92ec9a2d14db6e268"
+
+curl -v -X POST -H "Content-Type: application/json" -d  '{"name":"Devil\\'s Pass","difficulty":10,"time_needed_to_hike":23,"equipment_needed":["spikes","ice axe"],"tent_sites_available":true,"mountain_id":"6acac0c32ec9a2d14db6da89"}' "http://localhost:3000/api/trails"
+
+curl -X DELETE "http://localhost:3000/api/trails/6acaeb464644f6b562f82bed"
