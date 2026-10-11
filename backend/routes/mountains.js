@@ -31,10 +31,14 @@ function filterQuery(query) {
   ) {
     mongoQuery.typical_weather = typical_weather;
   }
-  if (latitude && latitude.trim() && !isNaN(Number(latitude))) {
+  if (latitude !== undefined && latitude.trim() && !isNaN(Number(latitude))) {
     mongoQuery.latitude = Number(latitude);
   }
-  if (longitude && longitude.trim() && !isNaN(Number(longitude))) {
+  if (
+    longitude !== undefined &&
+    longitude.trim() &&
+    !isNaN(Number(longitude))
+  ) {
     mongoQuery.longitude = Number(longitude);
   }
 
@@ -51,10 +55,9 @@ mountainsRouter.get("/mountains/count", async (req, res) => {
   try {
     // GET mountains collection
     const collection = await database.getCollection(
-      process.env.MONGODB_COLLECTION_MOUNTAINS
+      process.env.MONGODB_COLLECTION_MOUNTAINS,
     );
     const count = await collection.countDocuments({});
-    console.log(count);
     return res.status(200).json({ mountainsTotal: count });
   } catch (error) {
     console.error("Error getting mountains count: ", error);
@@ -83,14 +86,14 @@ mountainsRouter.get("/mountains", async (req, res) => {
       const dbResult = await database.queryCollection(
         process.env.MONGODB_COLLECTION_MOUNTAINS,
         mongoQuery,
-        limit
+        limit,
       );
       return res.status(200).json(dbResult);
     } else {
       // Perform query on database with no parameters
       const dbResult = await database.queryCollection(
         process.env.MONGODB_COLLECTION_MOUNTAINS,
-        {}
+        {},
       );
       return res.status(200).json(dbResult);
     }
@@ -110,7 +113,7 @@ mountainsRouter.get("/mountains/:id", async (req, res) => {
   try {
     // GET for a single ID
     const collection = await database.getCollection(
-      process.env.MONGODB_COLLECTION_MOUNTAINS
+      process.env.MONGODB_COLLECTION_MOUNTAINS,
     );
     const record = await collection.findOne({
       _id: new ObjectId(req.params.id),
@@ -147,13 +150,13 @@ mountainsRouter.put("/mountains/:id", async (req, res) => {
       height &&
       country &&
       typical_weather &&
-      latitude &&
-      longitude &&
+      latitude !== undefined &&
+      longitude !== undefined &&
       image_url
     ) {
       // Connect to collection
       const collection = await database.getCollection(
-        process.env.MONGODB_COLLECTION_MOUNTAINS
+        process.env.MONGODB_COLLECTION_MOUNTAINS,
       );
       // Update one record where the ID matches, set all other variables to those from body
       const putResult = await collection.updateOne(
@@ -168,7 +171,7 @@ mountainsRouter.put("/mountains/:id", async (req, res) => {
             longitude,
             image_url,
           },
-        }
+        },
       );
       // PUT returns {acknowledged, modifiedCount, upsertedId, upsertedCount, matchedCount}
       return res.status(200).json(putResult);
@@ -211,13 +214,13 @@ mountainsRouter.post("/mountains", async (req, res) => {
       height &&
       country &&
       typical_weather &&
-      latitude &&
-      longitude &&
+      latitude !== undefined &&
+      longitude !== undefined &&
       image_url
     ) {
       // Connect to collection
       const collection = await database.getCollection(
-        process.env.MONGODB_COLLECTION_MOUNTAINS
+        process.env.MONGODB_COLLECTION_MOUNTAINS,
       );
       // Insert new record with all fields
       const postResult = await collection.insertOne({
@@ -253,7 +256,7 @@ mountainsRouter.delete("/mountains/:id", async (req, res) => {
   try {
     // DELETE for a single ID
     const collection = await database.getCollection(
-      process.env.MONGODB_COLLECTION_MOUNTAINS
+      process.env.MONGODB_COLLECTION_MOUNTAINS,
     );
     const result = await collection.deleteOne({
       _id: new ObjectId(req.params.id),
