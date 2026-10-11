@@ -25,8 +25,9 @@ async function deleteMountain(mountainId) {
   }
 }
 
-async function editMountain() {
-    
+async function editMountain(mountainId) {
+  sessionStorage.setItem("_id", mountainId);
+  window.location.href = "admin-edit.html";
 }
 
 function displayMountains(mountains) {
@@ -149,6 +150,7 @@ function addSearchNewMountain() {
 
         displayMountains(mountains);
       } catch (error) {
+        console.error(error);
         document
           .getElementById("mountain-nav")
           .insertAdjacentHTML("afterend", '<div id="alert-message"></div>');
