@@ -54,7 +54,6 @@ function filterQuery(query) {
     equipment_needed.trim()
   ) {
     mongoQuery.equipment_needed = parseEquipment(equipment_needed);
-    console.log(mongoQuery.equipment_needed);
   }
   if (tent_sites_available && typeof tent_sites_available === "boolean") {
     mongoQuery.tent_sites_available = tent_sites_available;
@@ -153,8 +152,6 @@ trailsRouter.put("/trails/:id", async (req, res) => {
   if (!database.isActiveDb()) {
     return res.status(500).json({ error: "Database connection error" });
   }
-
-  console.log(req.body);
 
   try {
     // Required: all fields except for _id since _id is passed in path
