@@ -92,7 +92,7 @@ export default function addNewMountainsListener() {
               <input
                 type="number"
                 min="800"
-                max="20000"
+                max="28000"
                 step="1"
                 value="800"
                 class="form-control"
