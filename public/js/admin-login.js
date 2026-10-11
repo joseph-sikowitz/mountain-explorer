@@ -21,7 +21,7 @@ loginForm.addEventListener("submit", async (event) => {
   // Login if an admin, otherwise display error message
   if (response.ok && result.role === "admin") {
     // Remember which user logged in and their role
-    sessionStorage.setItem("userEmail", result.email);
+    sessionStorage.clear();
     sessionStorage.setItem("userRole", result.role);
     // Go to the admin panel
     window.location.href = "admin.html";

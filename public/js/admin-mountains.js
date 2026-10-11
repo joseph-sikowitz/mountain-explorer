@@ -2,12 +2,11 @@ import addNewMountainsListener from "./admin-mountains-new.js";
 import addEditMountainsListener from "./admin-mountains-edit.js";
 
 // Get the email and role of the user who logged in
-const userEmail = sessionStorage.getItem("userEmail");
 const userRole = sessionStorage.getItem("userRole");
 
 // If nobody has logged in, return to the login page
-if (!userEmail || userRole !== "admin") {
-  window.location.href = "admin-login.html";
+if (userRole !== "admin") {
+  window.location.replace("admin-login.html");
 }
 
 function addMountainsListener() {
