@@ -66,6 +66,8 @@ function addSubmitNewMountain() {
 
 export default function addNewMountainsListener() {
   document.getElementById("new-mountains").addEventListener("click", () => {
+    const resultsPanel = document.getElementById("mountain-results");
+    resultsPanel.innerHTML = "";
     document.getElementById("search-mountains").disabled = false;
     document.getElementById("new-mountains").disabled = true;
     document.getElementById("mountain-panel").innerHTML = "";

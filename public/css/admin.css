@@ -7,6 +7,10 @@
     margin-top: 2rem;
 }
 
+.results-panel {
+    margin-top: 2rem;
+}
+
 .mountain-visible {
   opacity: 1;
   transition: opacity 1s; 
