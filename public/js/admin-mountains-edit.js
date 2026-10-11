@@ -59,7 +59,7 @@ function displayMountains(mountains) {
           <button data-id="${mountain._id}" data-action="delete" class="btn btn-primary admin-btn" type="button">Delete</button>
         </div>
       </div>
-    </div>`,
+    </div>`
       )
       .join("");
   });
@@ -110,7 +110,7 @@ function addSearchNewMountain() {
       if (searchData.typical_weather.trim()) {
         searchParams.append(
           "typical_weather",
-          searchData.typical_weather.trim(),
+          searchData.typical_weather.trim()
         );
       }
 
@@ -139,7 +139,7 @@ function addSearchNewMountain() {
 
       try {
         const response = await fetch(
-          `api/mountains?${searchParams.toString()}`,
+          `api/mountains?${searchParams.toString()}`
         );
 
         const mountains = await response.json();
