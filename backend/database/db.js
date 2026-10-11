@@ -36,7 +36,7 @@ export default function database() {
   };
 
   // Get a subset of a collection with a query
-  me.queryCollection = async (collectionName, query = {}, limit = 10) => {
+  me.queryCollection = async (collectionName, query = {}, limit = 1000) => {
     const collection = await me.getCollection(collectionName);
     try {
       return await collection.find(query).limit(limit).toArray();
