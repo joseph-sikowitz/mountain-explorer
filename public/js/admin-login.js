@@ -7,7 +7,7 @@ loginForm.addEventListener("submit", async (event) => {
   const formData = new FormData(loginForm);
   const loginData = Object.fromEntries(formData);
 
-  // Send the login information to the server
+  // Send the user input to the api
   const response = await fetch("/api/users/login", {
     method: "POST",
     headers: {
@@ -18,11 +18,11 @@ loginForm.addEventListener("submit", async (event) => {
 
   const result = await response.json();
 
-  // Display login result
+  // Login if an admin, otherwise display error message
   if (response.ok && result.role === "admin") {
     // Remember which user logged in
     sessionStorage.setItem("userEmail", result.email);
-    // Go to the user's profile
+    // Go to the admin panel
     window.location.href = "admin.html";
   } else {
     loginMessage.textContent = "Invalid email, password, or role";
