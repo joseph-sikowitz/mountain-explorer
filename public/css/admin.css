@@ -1,19 +1,26 @@
 .admin-btn {
-  background-color: #1F5F4A;
+  background-color: #1f5f4a;
   border-color: #8cc3a3;
 }
 
 .edit-panel {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .results-panel {
-    margin-top: 2rem;
+  margin-top: 2rem;
+}
+
+.results-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .mountain-visible {
   opacity: 1;
-  transition: opacity 1s; 
+  transition: opacity 1s;
 }
 
 .mountain-hidden {
