@@ -1,7 +1,7 @@
 const userRole = sessionStorage.getItem("userRole");
 
-if (!userRole) {
-  window.location.href = "login.html";
+if (userRole !== "admin") {
+  window.location.href = "admin-login.html";
 }
 
 const logoutLink = document.querySelector("#admin-logout");
