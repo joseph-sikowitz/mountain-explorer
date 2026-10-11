@@ -15,7 +15,7 @@ app.use("/api/users", usersRouter);
 // When a request starts with /api/favorites, use the favorites router.
 app.use("/api/favorites", favoritesRouter);
 // When a request starts with /api/trails, hand that request to the router in routes/trails.js.
-app.use("/api/trails", trailsRouter);
+app.use("/api", trailsRouter);
 
 app.use("/api", mountainsRouter);
 
