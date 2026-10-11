@@ -64,8 +64,8 @@
           <h1>Admin Panel</h1>
         </div>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-md-6">
+      <div class="row edit-panel">
+        <div class="col-md-12">
           <div class="card">
             <div class="card-body text-center">
               <h2 class="card-title">Choose what to edit</h2>
@@ -75,13 +75,12 @@
           </div>
         </div>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body text-center">
-             <div id="admin-search"></div>
-            </div>
-          </div>
+      <div class="row edit-panel g-4">
+        <div class="col-md-4">
+          <div id="mountain-nav" class="card mountain-hidden"></div>
+        </div>
+        <div class="col-md-8">
+          <div id="mountain-panel" class="card mountain-hidden"></div>
         </div>
       </div>
     </main>
@@ -101,7 +100,6 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="js/profile.js"></script>
     <script type="module" src="js/logout.js"></script>
     <script type="module" src="js/admin-mountains.js"></script>
   </body>

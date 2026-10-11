@@ -1,0 +1,18 @@
+.admin-btn {
+  background-color: #1F5F4A;
+  border-color: #8cc3a3;
+}
+
+.edit-panel {
+    margin-top: 2rem;
+}
+
+.mountain-visible {
+  opacity: 1;
+  transition: opacity 1s; 
+}
+
+.mountain-hidden {
+  opacity: 0;
+  transition: opacity 1s;
+}
