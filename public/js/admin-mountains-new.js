@@ -1,6 +1,6 @@
 function addSubmitNewMountain() {
   document
-    .getElementById("mountain-search-form")
+    .getElementById("mountain-add-form")
     .addEventListener("submit", async (event) => {
       event.preventDefault();
 
@@ -28,7 +28,7 @@ function addSubmitNewMountain() {
 
         const result = await response.json();
 
-        document.getElementById("mountain-search-form").reset();
+        document.getElementById("mountain-add-form").reset();
 
         if (response.ok) {
           document
@@ -66,13 +66,17 @@ function addSubmitNewMountain() {
 
 export default function addNewMountainsListener() {
   document.getElementById("new-mountains").addEventListener("click", () => {
+    document.getElementById("search-mountains").disabled = false;
     document.getElementById("new-mountains").disabled = true;
+    document.getElementById("mountain-panel").innerHTML = "";
+    document.getElementById("mountain-panel").classList.add("mountain-hidden");
     document
       .getElementById("mountain-panel")
       .classList.remove("mountain-hidden");
     document.getElementById("mountain-panel").classList.add("mountain-visible");
+
     document.getElementById("mountain-panel").innerHTML +=
-      `<form id="mountain-search-form" class="px-4">
+      `<form id="mountain-add-form" class="px-4">
             <div class="mb-3">
               <label for="name" class="form-label">
                 Mountain Name
