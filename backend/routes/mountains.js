@@ -19,17 +19,17 @@ function filterQuery(query) {
   const mongoQuery = {};
 
   if (name && typeof name === "string" && name.trim()) {
-    mongoQuery.name = name;
+    mongoQuery.name = { $regex: name, $options: "i" };
   }
   if (country && typeof country === "string" && country.trim()) {
-    mongoQuery.country = country;
+    mongoQuery.country = { $regex: country, $options: "i" };
   }
   if (
     typical_weather &&
     typeof typical_weather === "string" &&
     typical_weather.trim()
   ) {
-    mongoQuery.typical_weather = typical_weather;
+    mongoQuery.typical_weather = { $regex: typical_weather, $options: "i" };
   }
   if (latitude !== undefined && latitude.trim() && !isNaN(Number(latitude))) {
     mongoQuery.latitude = Number(latitude);
