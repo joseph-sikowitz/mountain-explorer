@@ -12,12 +12,23 @@ if (userRole !== "admin") {
 function addMountainsListener() {
   document.getElementById("edit-mountains").addEventListener("click", () => {
     document.getElementById("edit-mountains").disabled = true;
+    document.getElementById("edit-trails").disabled = false;
 
     document.getElementById("mountain-nav").classList.remove("mountain-hidden");
-
     document.getElementById("mountain-nav").classList.add("mountain-visible");
 
-    document.getElementById("mountain-nav").innerHTML +=
+    document
+      .getElementById("mountain-panel")
+      .classList.remove("mountain-visible");
+    document.getElementById("mountain-panel").classList.add("mountain-hidden");
+    document
+      .getElementById("mountain-results")
+      .classList.remove("mountain-visible");
+    document.getElementById("mountain-panel").classList.add("mountain-hidden");
+    document.getElementById("mountain-results").innerHTML = "";
+    document.getElementById("mountain-panel").innerHTML = "";
+
+    document.getElementById("mountain-nav").innerHTML =
       `<button id="new-mountains" class="btn btn-primary admin-btn" type="button">New</button>
       <button id="search-mountains" class="btn btn-primary admin-btn" type="button">Search to Edit</button>`;
 
