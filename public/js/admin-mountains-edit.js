@@ -11,6 +11,10 @@ async function deleteMountain(mountainId) {
       throw new Error("Error deleting mountain: ", mountainId);
     }
 
+    if (document.getElementById("alert-message")) {
+      document.getElementById("alert-message").remove();
+    }
+
     document
       .getElementById("mountain-nav")
       .insertAdjacentHTML("afterend", '<div id="alert-message"></div>');
@@ -61,7 +65,7 @@ function displayMountains(mountains) {
           <button data-id="${mountain._id}" data-action="delete" class="btn btn-primary admin-btn" type="button">Delete</button>
         </div>
       </div>
-    </div>`
+    </div>`,
       )
       .join("");
   });
@@ -112,7 +116,7 @@ function addSearchNewMountain() {
       if (searchData.typical_weather.trim()) {
         searchParams.append(
           "typical_weather",
-          searchData.typical_weather.trim()
+          searchData.typical_weather.trim(),
         );
       }
 
@@ -126,6 +130,9 @@ function addSearchNewMountain() {
 
       // Require at least one search field
       if (searchParams.size === 0) {
+        if (document.getElementById("alert-message")) {
+          document.getElementById("alert-message").remove();
+        }
         document
           .getElementById("mountain-nav")
           .insertAdjacentHTML("afterend", '<div id="alert-message"></div>');
@@ -141,7 +148,7 @@ function addSearchNewMountain() {
 
       try {
         const response = await fetch(
-          `api/mountains?${searchParams.toString()}`
+          `api/mountains?${searchParams.toString()}`,
         );
 
         const mountains = await response.json();
@@ -153,6 +160,9 @@ function addSearchNewMountain() {
         displayMountains(mountains);
       } catch (error) {
         console.error(error);
+        if (document.getElementById("alert-message")) {
+          document.getElementById("alert-message").remove();
+        }
         document
           .getElementById("mountain-nav")
           .insertAdjacentHTML("afterend", '<div id="alert-message"></div>');

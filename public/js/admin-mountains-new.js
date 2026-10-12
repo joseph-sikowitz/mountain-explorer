@@ -31,6 +31,9 @@ function addSubmitNewMountain() {
         document.getElementById("mountain-add-form").reset();
 
         if (response.ok) {
+          if (document.getElementById("alert-message")) {
+            document.getElementById("alert-message").remove();
+          }
           document
             .getElementById("mountain-nav")
             .insertAdjacentHTML("afterend", '<div id="alert-message"></div>');
@@ -40,6 +43,9 @@ function addSubmitNewMountain() {
           alertMsg.innerHTML +=
             'Added new mountain. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
         } else {
+          if (document.getElementById("alert-message")) {
+            document.getElementById("alert-message").remove();
+          }
           console.error("POST error for mountains: ", result);
           document
             .getElementById("mountain-nav")
@@ -52,6 +58,9 @@ function addSubmitNewMountain() {
         }
       } catch (error) {
         console.error("POST error for mountains: ", error);
+        if (document.getElementById("alert-message")) {
+          document.getElementById("alert-message").remove();
+        }
         document
           .getElementById("mountain-nav")
           .insertAdjacentHTML("afterend", '<div id="alert-message"></div>');
