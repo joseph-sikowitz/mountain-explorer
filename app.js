@@ -1,8 +1,12 @@
 import express from "express";
+import dotenv from "dotenv";
 import usersRouter from "./backend/routes/users.js";
 import mountainsRouter from "./backend/routes/mountains.js";
 import favoritesRouter from "./backend/routes/favorites.js";
 import trailsRouter from "./backend/routes/trails.js";
+
+// Read environment variables
+dotenv.config({ quiet: true });
 
 const app = express();
 const PORT = process.env.PORT || 3000;
