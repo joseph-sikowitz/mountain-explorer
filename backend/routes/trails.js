@@ -55,7 +55,10 @@ function filterQuery(query) {
   ) {
     mongoQuery.equipment_needed = parseEquipment(equipment_needed);
   }
-  if (tent_sites_available && tent_sites_available === "true") {
+  if (
+    (tent_sites_available && tent_sites_available === "true") ||
+    tent_sites_available === true
+  ) {
     mongoQuery.tent_sites_available = true;
   } else {
     mongoQuery.tent_sites_available = false;
@@ -175,6 +178,8 @@ trailsRouter.put("/trails/:id", async (req, res) => {
       tent_sites_available !== undefined &&
       mountain_id
     ) {
+      const equipment = parseEquipment(equipment_needed);
+
       // Connect to collection
       const collection = await database.getCollection(
         process.env.MONGODB_COLLECTION_TRAILS
@@ -187,7 +192,7 @@ trailsRouter.put("/trails/:id", async (req, res) => {
             name,
             difficulty,
             time_needed_to_hike,
-            equipment_needed,
+            equipment,
             tent_sites_available,
             mountain_id: new ObjectId(mountain_id),
           },
@@ -243,7 +248,7 @@ trailsRouter.post("/trails", async (req, res) => {
         name: name,
         difficulty: difficulty,
         time_needed_to_hike: time_needed_to_hike,
-        equipment_needed: equipment_needed,
+        equipment_needed: parseEquipment(equipment_needed),
         tent_sites_available: tent_sites_available,
         mountain_id: new ObjectId(mountain_id),
       });
