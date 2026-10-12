@@ -55,6 +55,8 @@ function displayMountains(mountains) {
         <img src="${mountain.image_url}" class="card-img-top results-img" alt="${mountain.name}">
         <div class="card-body text-center mb-2">
           <h3 class="card-title">${mountain.name}</h3>
+          <p class="card-text">Height: ${mountain.height} feet</p>
+          <p class="card-text">Country: ${mountain.country}</p>
           <button data-id="${mountain._id}" data-action="edit" class="btn btn-primary admin-btn" type="button">Edit</button>
           <button data-id="${mountain._id}" data-action="delete" class="btn btn-primary admin-btn" type="button">Delete</button>
         </div>
