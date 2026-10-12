@@ -55,8 +55,10 @@ function filterQuery(query) {
   ) {
     mongoQuery.equipment_needed = parseEquipment(equipment_needed);
   }
-  if (tent_sites_available && typeof tent_sites_available === "boolean") {
-    mongoQuery.tent_sites_available = tent_sites_available;
+  if (tent_sites_available && tent_sites_available === "true") {
+    mongoQuery.tent_sites_available = true;
+  } else {
+    mongoQuery.tent_sites_available = false;
   }
   if (mountain_id && typeof mountain_id === "string" && mountain_id.trim()) {
     const m_id = new ObjectId(mountain_id);
