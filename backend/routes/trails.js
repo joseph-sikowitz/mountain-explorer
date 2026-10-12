@@ -36,7 +36,7 @@ function filterQuery(query) {
   const mongoQuery = {};
 
   if (name && typeof name === "string" && name.trim()) {
-    mongoQuery.name = name;
+    mongoQuery.name = { $regex: name, $options: "i" };
   }
   if (difficulty && difficulty.trim() && !isNaN(Number(difficulty))) {
     mongoQuery.difficulty = Number(difficulty);
