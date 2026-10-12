@@ -1,3 +1,5 @@
+import addNewTrailsListener from "./admin-trails-new.js";
+
 // Get the email and role of the user who logged in
 const userRole = sessionStorage.getItem("userRole");
 
@@ -30,6 +32,8 @@ function addTrailsListener() {
     document.getElementById("mountain-nav").innerHTML =
       `<button id="new-trails" class="btn btn-primary admin-btn" type="button">New</button>
       <button id="search-trails" class="btn btn-primary admin-btn" type="button">Search to Edit</button>`;
+
+    addNewTrailsListener();
   });
 }
 
