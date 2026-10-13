@@ -187,6 +187,10 @@ function addSearchNewMountain() {
           throw new Error("No mountains found");
         }
 
+        if (document.getElementById("alert-message")) {
+          document.getElementById("alert-message").remove();
+        }
+
         displayMountains(mountains);
       } catch (error) {
         console.error(error);
