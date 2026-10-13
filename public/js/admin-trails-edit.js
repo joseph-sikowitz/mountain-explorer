@@ -94,6 +94,7 @@ function displayTrails(trails) {
           <h3 class="card-title">${trail.name}</h3>
           <p class="card-text">Difficulty: ${trail.difficulty}</p>
           <p class="card-text">Time Required: ${trail.time_needed_to_hike}</p>
+          <p class="card-text">Equipment Needed: ${trail.equipment_needed}</p>
           <button data-id="${trail._id}" data-action="edit" class="btn btn-primary admin-btn" type="button">Edit</button>
           <button data-id="${trail._id}" data-action="delete" class="btn btn-primary admin-btn" type="button">Delete</button>
         </div>
