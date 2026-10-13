@@ -122,7 +122,6 @@ export default function addNewMountainsListener() {
                 min="800"
                 max="28000"
                 step="1"
-                value="800"
                 class="form-control"
                 id="new-height"
                 name="height"
@@ -192,6 +191,7 @@ export default function addNewMountainsListener() {
             </div>
 
             <button type="submit" class="btn btn-primary">Add</button>
+            <button type="reset" class="btn btn-primary">Reset</button>
           </form>`;
 
     addSubmitNewMountain();

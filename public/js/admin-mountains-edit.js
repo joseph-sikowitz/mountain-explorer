@@ -320,6 +320,7 @@ export default function addEditMountainsListener() {
             </div>
 
             <button type="submit" class="btn btn-primary">Search</button>
+            <button type="reset" class="btn btn-primary">Reset</button>
           </form>`;
 
     addSearchNewMountain();
