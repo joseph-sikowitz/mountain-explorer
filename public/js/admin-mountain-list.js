@@ -1,3 +1,11 @@
+/*
+  Function: getAllMountains()
+    Retrieves a list of all mountains for the dropdown in the trails
+    admin area.
+  Params: none
+  Return: array of mountain JSON
+*/
+
 async function getAllMountains() {
   try {
     const mountains = await fetch("api/mountains");
@@ -14,6 +22,13 @@ async function getAllMountains() {
   }
 }
 
+/*
+  Function: addMountainList()
+    Adds the list of all mountains to the dropdown in the trails
+    admin area as dropdown options.
+  Params: none
+  Return: none
+*/
 export default async function addMountainList() {
   const mountains = await getAllMountains();
   const dropdown = document.getElementById("mountain_id");
