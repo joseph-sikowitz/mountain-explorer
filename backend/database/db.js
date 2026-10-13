@@ -39,7 +39,11 @@ export default function database() {
   me.queryCollection = async (collectionName, query = {}, limit = 1000) => {
     const collection = await me.getCollection(collectionName);
     try {
-      return await collection.find(query).limit(limit).toArray();
+      return await collection
+        .find(query)
+        .sort({ name: 1 })
+        .limit(limit)
+        .toArray();
     } catch (error) {
       console.error("Error querying collection:", error);
       throw error;
