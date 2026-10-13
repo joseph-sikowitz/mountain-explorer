@@ -93,6 +93,7 @@ export default function addNewTrailsListener() {
             </div>
 
             <button type="submit" class="btn btn-primary">Add</button>
+            <button type="reset" class="btn btn-primary">Reset</button>
           </form>`;
 
     addSubmitNewTrail();

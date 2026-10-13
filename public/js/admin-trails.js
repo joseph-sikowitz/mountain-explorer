@@ -1,4 +1,5 @@
 import addNewTrailsListener from "./admin-trails-new.js";
+import addEditTrailsListener from "./admin-trails-edit.js";
 
 // Get the email and role of the user who logged in
 const userRole = sessionStorage.getItem("userRole");
@@ -43,6 +44,7 @@ function addTrailsListener() {
       <button id="search-trails" class="btn btn-primary admin-btn" type="button">Search to Edit</button>`;
 
     addNewTrailsListener();
+    addEditTrailsListener();
   });
 }
 
