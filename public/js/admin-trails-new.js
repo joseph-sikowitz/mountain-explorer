@@ -83,13 +83,8 @@ export default function addNewTrailsListener() {
             </div>
 
             <div class="mb-3">
-              <label for="mountain_id" class="form-label"> Mountain ID </label>
-              <input
-                type="text"
-                class="form-control"
-                id="new-mountain-id"
-                name="mountain_id"
-              />
+              <label for="mountain_id" class="form-label"> Mountain </label>
+              <select class="form-select" id="mountain_id" name="mountain_id"
             </div>
 
             <button type="submit" class="btn btn-primary">Add</button>
@@ -97,6 +92,7 @@ export default function addNewTrailsListener() {
           </form>`;
 
     addSubmitNewTrail();
+    addMountainList();
   });
 }
 
@@ -170,4 +166,33 @@ function addSubmitNewTrail() {
           'Error adding new trail. Must complete all fields. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
       }
     });
+}
+
+async function getAllMountains() {
+  try {
+    const mountains = await fetch("api/mountains");
+
+    const mountainsData = await mountains.json();
+
+    if (!mountains.ok) {
+      throw new Error("Could not get mountains");
+    }
+
+    return mountainsData;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function addMountainList() {
+  const mountains = await getAllMountains();
+  const dropdown = document.getElementById("mountain_id");
+
+  for (let i = 0; i < mountains.length; i++) {
+    let mountain = mountains[i];
+    let option = document.createElement("option");
+    option.textContent = mountain.name;
+    option.value = mountain._id;
+    dropdown.appendChild(option);
+  }
 }
