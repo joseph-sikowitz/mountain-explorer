@@ -84,7 +84,9 @@ export default function addNewTrailsListener() {
 
             <div class="mb-3">
               <label for="mountain_id" class="form-label"> Mountain </label>
-              <select class="form-select" id="mountain_id" name="mountain_id"
+              <select class="form-select" id="mountain_id" name="mountain_id">
+                <option disabled selected>Select a Mountain</option>
+              </select>
             </div>
 
             <button type="submit" class="btn btn-primary">Add</button>
