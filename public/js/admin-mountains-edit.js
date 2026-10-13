@@ -32,7 +32,19 @@ async function deleteMountain(mountainId) {
     document.getElementById("mountain-results").innerHTML = "";
     window.scrollTo(0, 0);
   } catch (error) {
-    console.error("DELETE error for mountains: ", error);
+    console.error(error);
+    if (document.getElementById("alert-message")) {
+      document.getElementById("alert-message").remove();
+    }
+    document
+      .getElementById("mountain-nav")
+      .insertAdjacentHTML("afterend", '<div id="alert-message"></div>');
+    const alertMsg = document.getElementById("alert-message");
+    alertMsg.className = "alert alert-danger alert-dismissible fade show mt-2";
+    alertMsg.innerHTML +=
+      'Mountain deletion error. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+    document.getElementById("mountain-results").innerHTML = "";
+    window.scrollTo(0, 0);
   }
 }
 
