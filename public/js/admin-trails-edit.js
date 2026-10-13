@@ -98,7 +98,7 @@ function displayTrails(trails) {
           <button data-id="${trail._id}" data-action="delete" class="btn btn-primary admin-btn" type="button">Delete</button>
         </div>
       </div>
-    </div>`,
+    </div>`
       )
       .join("");
   });
@@ -153,14 +153,14 @@ function addSearchNewTrail() {
       if (searchData.time_needed_to_hike.trim()) {
         searchParams.append(
           "time_needed_to_hike",
-          searchData.time_needed_to_hike.trim(),
+          searchData.time_needed_to_hike.trim()
         );
       }
 
       if (searchData.equipment_needed.trim()) {
         searchParams.append(
           "equipment_needed",
-          searchData.equipment_needed.trim(),
+          searchData.equipment_needed.trim()
         );
       }
 
