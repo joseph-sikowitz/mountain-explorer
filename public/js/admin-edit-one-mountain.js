@@ -164,6 +164,10 @@ function createEditForm(result) {
           throw new Error("Could not update mountain");
         }
 
+        if (document.getElementById("alert-insert")) {
+          document.getElementById("alert-insert").remove();
+        }
+
         const alertMsg = document.getElementById("alert-msg");
         alertMsg.innerHTML += '<div id="alert-insert"></div>';
         const alertInsert = document.getElementById("alert-insert");
@@ -172,7 +176,12 @@ function createEditForm(result) {
         alertInsert.innerHTML =
           'Updated mountain. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
       } catch (error) {
-        console.error("PUT error for mountains: ", error);
+        console.error(error);
+
+        if (document.getElementById("alert-insert")) {
+          document.getElementById("alert-insert").remove();
+        }
+
         const alertMsg = document.getElementById("alert-msg");
         alertMsg.innerHTML += '<div id="alert-insert"></div>';
         const alertInsert = document.getElementById("alert-insert");
