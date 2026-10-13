@@ -1,3 +1,5 @@
+import addMountainList from "./admin-mountain-list.js";
+
 /*
   Function: getTrailRecord()
     Searches the API for a trail record matching the id and creates an
@@ -98,9 +100,18 @@ function createEditForm(result) {
               />
             </div>
 
+            <div class="mb-3">
+              <label for="mountain_id" class="form-label"> Mountain </label>
+              <select class="form-select" id="mountain_id" name="mountain_id">
+                <option disabled selected>Select a Mountain</option>
+              </select>
+            </div>
+
             <button type="submit" class="btn btn-primary">Update</button>
             <button type="reset" class="btn btn-primary">Reset</button>
           </form>`;
+
+  addMountainList();
 
   document
     .getElementById("trail-update-form")
@@ -122,9 +133,14 @@ function createEditForm(result) {
           time_needed_to_hike: Number(editData.time_needed_to_hike),
           equipment_needed: editData.equipment_needed,
           tent_sites_available: tent,
+          mountain_id: editData.mountain_id,
         };
 
+        console.log(body);
+
         const id = sessionStorage.getItem("_id");
+
+        console.log(id);
 
         const response = await fetch(`api/trails/${id}`, {
           method: "PUT",

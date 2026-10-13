@@ -1,3 +1,5 @@
+import addMountainList from "./admin-mountain-list.js";
+
 /*
   Function: addNewTrailsListener()
     Adds event listener to the new trails button and creates the HTML form
@@ -168,33 +170,4 @@ function addSubmitNewTrail() {
           'Error adding new trail. Must complete all fields. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
       }
     });
-}
-
-async function getAllMountains() {
-  try {
-    const mountains = await fetch("api/mountains");
-
-    const mountainsData = await mountains.json();
-
-    if (!mountains.ok) {
-      throw new Error("Could not get mountains");
-    }
-
-    return mountainsData;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-async function addMountainList() {
-  const mountains = await getAllMountains();
-  const dropdown = document.getElementById("mountain_id");
-
-  for (let i = 0; i < mountains.length; i++) {
-    let mountain = mountains[i];
-    let option = document.createElement("option");
-    option.textContent = mountain.name;
-    option.value = mountain._id;
-    dropdown.appendChild(option);
-  }
 }
