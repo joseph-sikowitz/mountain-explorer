@@ -186,11 +186,11 @@ trailsRouter.put("/trails/:id", async (req, res) => {
         { _id: new ObjectId(req.params.id) },
         {
           $set: {
-            name,
-            difficulty,
-            time_needed_to_hike,
-            equipment,
-            tent_sites_available,
+            name: name,
+            difficulty: difficulty,
+            time_needed_to_hike: time_needed_to_hike,
+            equipment_needed: equipment,
+            tent_sites_available: tent_sites_available,
             mountain_id: new ObjectId(mountain_id),
           },
         }

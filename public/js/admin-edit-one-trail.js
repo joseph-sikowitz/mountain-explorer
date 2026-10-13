@@ -16,7 +16,7 @@ async function getTrailRecord(id) {
     if (!response.ok) {
       throw new Error("Could not retrieve trail by ID");
     }
-    createEditForm(result);
+    await createEditForm(result);
   } catch (error) {
     console.error(error);
   }
@@ -30,7 +30,7 @@ async function getTrailRecord(id) {
     result (JSON) -- data returned from fetching the trail record
   Return: none
 */
-function createEditForm(result) {
+async function createEditForm(result) {
   document.getElementById("edit-form").innerHTML +=
     `<form id="trail-update-form" class="px-4">
             <div class="mb-3">
@@ -111,7 +111,14 @@ function createEditForm(result) {
             <button type="reset" class="btn btn-primary">Reset</button>
           </form>`;
 
-  addMountainList();
+  await addMountainList();
+
+  // Choose current mountain in list
+  const selectMountain = document.getElementById("mountain_id");
+  selectMountain.value = result.mountain_id;
+  if (selectMountain.selectedIndex === -1) {
+    selectMountain.selectedIndex = 0;
+  }
 
   document
     .getElementById("trail-update-form")
