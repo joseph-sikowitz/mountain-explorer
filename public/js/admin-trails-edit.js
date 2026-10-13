@@ -181,7 +181,7 @@ function addSearchNewTrail() {
         return;
       }
 
-      searchParams.append("limit", 25);
+      searchParams.append("limit", 1000);
 
       try {
         const response = await fetch(`api/trails?${searchParams.toString()}`);
