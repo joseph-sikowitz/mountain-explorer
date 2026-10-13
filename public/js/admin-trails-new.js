@@ -1,3 +1,10 @@
+/*
+  Function: addNewTrailsListener()
+    Adds event listener to the new trails button and creates the HTML form
+    that is used to submit a new trail.
+  Params: none
+  Returns: none
+*/
 export default function addNewTrailsListener() {
   document.getElementById("new-trails").addEventListener("click", () => {
     const resultsPanel = document.getElementById("mountain-results");
@@ -92,6 +99,13 @@ export default function addNewTrailsListener() {
   });
 }
 
+/*
+  Function: addSubmitNewTrail()
+    Adds event listener to the submit new trail button that performs a POST
+    request with the new trail form data.
+  Params: none
+  Returns: none
+*/
 function addSubmitNewTrail() {
   document
     .getElementById("trail-add-form")

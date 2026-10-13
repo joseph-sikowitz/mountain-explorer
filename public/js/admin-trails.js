@@ -8,6 +8,15 @@ if (userRole !== "admin") {
   window.location.replace("admin-login.html");
 }
 
+/*
+  Function: addTrailsListener()
+    Adds listener to top level trails button in admin area so that
+    it toggles between the trails and mountains buttons, and creates
+    the panel for the user to choose to add a new trail or search and
+    edit an existing one.
+  Params: none
+  Return: none
+*/
 function addTrailsListener() {
   document.getElementById("edit-trails").addEventListener("click", () => {
     document.getElementById("edit-trails").disabled = true;

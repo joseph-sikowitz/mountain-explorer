@@ -1,3 +1,10 @@
+/*
+  Function: deleteMountain()
+    Sends DELETE request using a mountain ID.
+  Params:
+    mountainId (string) -- Mongo mountain ID
+  Return: none
+*/
 async function deleteMountain(mountainId) {
   try {
     const response = await fetch(`api/mountains/${mountainId}`, {
@@ -29,11 +36,26 @@ async function deleteMountain(mountainId) {
   }
 }
 
+/*
+  Function: editMountain()
+    Stores the mountain ID as a session variable and redirects to
+    the edit page.
+  Params:
+    mountainId (string) -- Mongo mountain ID
+  Return: none
+*/
 async function editMountain(mountainId) {
   sessionStorage.setItem("_id", mountainId);
   window.location.href = "admin-edit.html";
 }
 
+/*
+  Function: displayMountains()
+    Builds a card grid from the results of a mountain search.
+  Params:
+    mountains (array) -- list of mountains to display
+  Return: none
+*/
 function displayMountains(mountains) {
   const resultsPanel = document.getElementById("mountain-results");
   resultsPanel.innerHTML = "";
@@ -86,6 +108,14 @@ function displayMountains(mountains) {
   });
 }
 
+/*
+  Function: addSearchNewMountain()
+    Adds an event listener to the edit mountain button that toggles between 
+    new and edit buttons in the selection panel, performs a search to find
+    the mountains to edit, and displays them.
+  Params: none
+  Return: none
+*/
 function addSearchNewMountain() {
   document
     .getElementById("mountain-edit-form")
@@ -175,6 +205,14 @@ function addSearchNewMountain() {
     });
 }
 
+/*
+  Function: addEditMountainsListener()
+    Adds an event listener to the edit mountain button that toggles between 
+    new and edit buttons in the selection panel, and creates the HTML form 
+    to edit a mountain.
+  Params: none
+  Return: none
+*/
 export default function addEditMountainsListener() {
   document.getElementById("search-mountains").addEventListener("click", () => {
     document.getElementById("mountain-panel").innerHTML = "";

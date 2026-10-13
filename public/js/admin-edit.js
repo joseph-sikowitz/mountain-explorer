@@ -1,3 +1,11 @@
+/*
+  Function: getMountainRecord()
+    Searches the API for a mountain record matching the id and creates an
+    edit form in HTML if a matching record is found.
+  Params:
+    id (string) -- id of mountain to find
+  Return: none
+*/
 async function getMountainRecord(id) {
   try {
     const response = await fetch(`api/mountains/${id}`);
@@ -9,10 +17,17 @@ async function getMountainRecord(id) {
     createEditForm(result);
   } catch (error) {
     console.error(error);
-    //Show user error message somewhere
   }
 }
 
+/*
+  Function: createEditForm()
+    Builds the HTML form for editing a mountain and adds an event listener to
+    the add button to submit the changes as a PUT request.
+  Params:
+    result (JSON) -- data returned from fetching the mountain record
+  Return: none
+*/
 function createEditForm(result) {
   document.getElementById("edit-form").innerHTML +=
     `<form id="mountain-update-form" class="px-4">

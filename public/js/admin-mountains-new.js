@@ -1,3 +1,10 @@
+/*
+  Function: addSubmitNewMountain()
+    Adds an event listener to the submit button for the new mountain form
+    that performs a POST request with the form data.
+  Params: none
+  Returns: none
+*/
 function addSubmitNewMountain() {
   document
     .getElementById("mountain-add-form")
@@ -73,6 +80,12 @@ function addSubmitNewMountain() {
     });
 }
 
+/*
+  Function: addNewMountainsListener()
+    Adds an event listener to the new mountain button that toggles between 
+    new and edit buttons in the selection panel, and creates the HTML form 
+    to create a new mountain.
+*/
 export default function addNewMountainsListener() {
   document.getElementById("new-mountains").addEventListener("click", () => {
     const resultsPanel = document.getElementById("mountain-results");
