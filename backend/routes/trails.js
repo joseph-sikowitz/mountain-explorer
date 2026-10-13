@@ -34,7 +34,6 @@ function filterQuery(query) {
     difficulty,
     time_needed_to_hike,
     equipment_needed,
-    tent_sites_available,
     mountain_id,
   } = query;
 
@@ -59,14 +58,6 @@ function filterQuery(query) {
     equipment_needed.trim()
   ) {
     mongoQuery.equipment_needed = parseEquipment(equipment_needed, true);
-  }
-  if (
-    (tent_sites_available && tent_sites_available === "true") ||
-    tent_sites_available === true
-  ) {
-    mongoQuery.tent_sites_available = true;
-  } else {
-    mongoQuery.tent_sites_available = false;
   }
   if (mountain_id && typeof mountain_id === "string" && mountain_id.trim()) {
     const m_id = new ObjectId(mountain_id);
