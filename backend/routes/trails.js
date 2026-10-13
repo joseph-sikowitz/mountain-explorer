@@ -13,10 +13,15 @@ const database = db();
 await database.connect();
 
 // Parse equipment_needed array
-function parseEquipment(equipment) {
-  if (equipment && typeof equipment === "string") {
+function parseEquipment(equipment, search) {
+  if (search) {
+    if (equipment && typeof equipment === "string") {
+      const equipment_array = equipment.split(",").map((e) => e.trim());
+      return { $all: equipment_array };
+    }
+  } else {
     const equipment_array = equipment.split(",").map((e) => e.trim());
-    return { $all: equipment_array };
+    return equipment_array;
   }
 
   return [];
@@ -53,7 +58,7 @@ function filterQuery(query) {
     typeof equipment_needed === "string" &&
     equipment_needed.trim()
   ) {
-    mongoQuery.equipment_needed = parseEquipment(equipment_needed);
+    mongoQuery.equipment_needed = parseEquipment(equipment_needed, true);
   }
   if (
     (tent_sites_available && tent_sites_available === "true") ||
@@ -178,6 +183,9 @@ trailsRouter.put("/trails/:id", async (req, res) => {
       tent_sites_available !== undefined &&
       mountain_id
     ) {
+      // Transform comma separate string to array
+      const equipment = parseEquipment(equipment_needed, false);
+
       // Connect to collection
       const collection = await database.getCollection(
         process.env.MONGODB_COLLECTION_TRAILS
@@ -190,7 +198,7 @@ trailsRouter.put("/trails/:id", async (req, res) => {
             name,
             difficulty,
             time_needed_to_hike,
-            equipment_needed,
+            equipment,
             tent_sites_available,
             mountain_id: new ObjectId(mountain_id),
           },
@@ -237,6 +245,9 @@ trailsRouter.post("/trails", async (req, res) => {
       tent_sites_available !== undefined &&
       mountain_id
     ) {
+      // Transform comma separate string to array
+      const equipment = parseEquipment(equipment_needed, false);
+
       // Connect to collection
       const collection = await database.getCollection(
         process.env.MONGODB_COLLECTION_TRAILS
@@ -246,7 +257,7 @@ trailsRouter.post("/trails", async (req, res) => {
         name: name,
         difficulty: difficulty,
         time_needed_to_hike: time_needed_to_hike,
-        equipment_needed: equipment_needed,
+        equipment_needed: equipment,
         tent_sites_available: tent_sites_available,
         mountain_id: new ObjectId(mountain_id),
       });
