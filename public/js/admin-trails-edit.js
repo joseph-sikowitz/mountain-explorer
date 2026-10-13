@@ -164,10 +164,6 @@ function addSearchNewTrail() {
         );
       }
 
-      if (searchData.tent_sites_available !== undefined) {
-        searchParams.append("tent_sites_available", "true");
-      }
-
       // Require at least one search field
       if (searchParams.size === 0) {
         if (document.getElementById("alert-message")) {
@@ -287,18 +283,6 @@ export default function addEditTrailsListener() {
                 class="form-control"
                 id="edit-equipment-needed"
                 name="equipment_needed"
-              />
-            </div>
-
-            <div class="mb-3">
-              <label for="tent_sites_available" class="form-label">
-                Tent Sites Available
-              </label>
-              <input
-                type="checkbox"
-                class="form-check"
-                id="edit-tent-sites-available"
-                name="tent_sites_available"
               />
             </div>
 
