@@ -58,7 +58,7 @@ async function deleteMountain(mountainId) {
 */
 async function editMountain(mountainId) {
   sessionStorage.setItem("_id", mountainId);
-  window.location.href = "admin-edit.html";
+  window.location.href = "admin-edit-mountain.html";
 }
 
 /*
