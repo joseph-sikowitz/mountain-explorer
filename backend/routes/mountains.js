@@ -14,12 +14,15 @@ await database.connect();
 
 // Used to build Mongo query from URL parameters
 function filterQuery(query) {
-  const { name, country, typical_weather, latitude, longitude } = query;
+  const { name, height, country, typical_weather, latitude, longitude } = query;
 
   const mongoQuery = {};
 
   if (name && typeof name === "string" && name.trim()) {
     mongoQuery.name = { $regex: name, $options: "i" };
+  }
+  if (height !== undefined && height.trim() && !isNaN(Number(height))) {
+    mongoQuery.height = Number(height);
   }
   if (country && typeof country === "string" && country.trim()) {
     mongoQuery.country = { $regex: country, $options: "i" };
