@@ -1,4 +1,5 @@
 const mountainMessage = document.querySelector("#mountain-message");
+const mountainName = document.querySelector("#mountain-name");
 const mountainDetails = document.querySelector("#mountain-details");
 const trailMessage = document.querySelector("#trail-message");
 const trailResults = document.querySelector("#trail-results");
@@ -45,10 +46,8 @@ function displayMountain(mountain) {
   mountainDetails.replaceChildren();
 
   // Mountain name
-  const name = document.createElement("h1");
-  name.textContent = mountain.name;
 
-  mountainDetails.append(name);
+  mountainName.textContent = mountain.name;
 
   // Mountain image
   if (mountain.image_url) {
