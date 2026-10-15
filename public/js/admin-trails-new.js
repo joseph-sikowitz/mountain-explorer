@@ -63,7 +63,7 @@ export default function addNewTrailsListener() {
             </div>
 
             <div class="mb-3">
-              <label for="equipment_needed" class="form-label"> Equipment Needed </label>
+              <label for="equipment_needed" class="form-label"> Equipment Needed (comma separated list)</label>
               <input
                 type="text"
                 class="form-control"
