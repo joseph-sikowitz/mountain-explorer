@@ -90,7 +90,7 @@ function createEditForm(result) {
                 type="number"
                 min="-90"
                 max="90"
-                step="0.0001"
+                step="0.000000001"
                 class="form-control"
                 id="edit-latitude"
                 name="latitude"
@@ -106,7 +106,7 @@ function createEditForm(result) {
                 type="number"
                 min="-180"
                 max="180"
-                step="0.0001"
+                step="0.000000001"
                 class="form-control"
                 id="edit-longitude"
                 name="longitude"
@@ -116,7 +116,7 @@ function createEditForm(result) {
 
             <div class="mb-3">
               <label for="longitude" class="form-label">
-                Image
+                Image URL
               </label>
               <input
                 type="text"

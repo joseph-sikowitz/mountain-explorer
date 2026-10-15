@@ -31,6 +31,11 @@ async function getTrailRecord(id) {
   Return: none
 */
 async function createEditForm(result) {
+  let availability = "";
+  if (result.tent_sites_available === true) {
+    availability = "checked";
+  }
+
   document.getElementById("edit-form").innerHTML +=
     `<form id="trail-update-form" class="px-4">
             <div class="mb-3">
@@ -77,7 +82,7 @@ async function createEditForm(result) {
             </div>
 
             <div class="mb-3">
-              <label for="equipment_needed" class="form-label"> Equipment Needed </label>
+              <label for="equipment_needed" class="form-label"> Equipment Needed (comma separated list)</label>
               <input
                 type="text"
                 class="form-control"
@@ -96,7 +101,7 @@ async function createEditForm(result) {
                 class="form-check"
                 id="edit-tent-sites-available"
                 name="tent_sites_available"
-                value="${result.tent_sites_available}"
+                ${availability}
               />
             </div>
 
