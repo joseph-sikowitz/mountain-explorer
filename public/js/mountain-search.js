@@ -29,6 +29,9 @@ searchForm.addEventListener("submit", async (event) => {
     return;
   }
 
+  // Return up to 1000 search results
+  searchParams.append("limit", "1000");
+
   try {
     const response = await fetch(`/api/mountains?${searchParams.toString()}`);
 
