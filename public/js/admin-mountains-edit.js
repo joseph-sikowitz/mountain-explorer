@@ -1,4 +1,9 @@
 /*
+  Author: Joseph Sikowitz
+  October 2026
+*/
+
+/*
   Function: deleteMountain()
     Sends DELETE request using a mountain ID.
   Params:

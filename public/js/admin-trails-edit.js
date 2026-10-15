@@ -1,4 +1,9 @@
 /*
+  Author: Joseph Sikowitz
+  October 2026
+*/
+
+/*
   Function: deleteTrail()
     Sends DELETE request using a trail ID.
   Params:

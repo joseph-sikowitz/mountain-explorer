@@ -1,4 +1,9 @@
 /*
+  Author: Joseph Sikowitz
+  October 2026
+*/
+
+/*
   Function: getMountainRecord()
     Searches the API for a mountain record matching the id and creates an
     edit form in HTML if a matching record is found.

@@ -1,3 +1,8 @@
+/*
+  Author: Joseph Sikowitz
+  October 2026
+*/
+
 import express from "express";
 import db from "../database/db.js";
 import dotenv from "dotenv";

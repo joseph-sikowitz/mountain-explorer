@@ -1,4 +1,9 @@
 /*
+  Author: Joseph Sikowitz
+  October 2026
+*/
+
+/*
   Function: getAllMountains()
     Retrieves a list of all mountains for the dropdown in the trails
     admin area.

@@ -1,4 +1,9 @@
 /*
+  Author: Joseph Sikowitz
+  October 2026
+*/
+
+/*
   Function: addSubmitNewMountain()
     Adds an event listener to the submit button for the new mountain form
     that performs a POST request with the form data.

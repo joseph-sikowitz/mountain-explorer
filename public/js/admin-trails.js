@@ -1,3 +1,8 @@
+/*
+  Author: Joseph Sikowitz
+  October 2026
+*/
+
 import addNewTrailsListener from "./admin-trails-new.js";
 import addEditTrailsListener from "./admin-trails-edit.js";
 

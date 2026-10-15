@@ -1,3 +1,8 @@
+/*
+  Author: Joseph Sikowitz
+  October 2026
+*/
+
 const loginForm = document.querySelector("#admin-login-form");
 const loginMessage = document.querySelector("#admin-login-message");
 

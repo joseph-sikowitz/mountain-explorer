@@ -1,3 +1,8 @@
+/*
+  Author: Joseph Sikowitz
+  October 2026
+*/
+
 import addMountainList from "./admin-mountain-list.js";
 
 /*
