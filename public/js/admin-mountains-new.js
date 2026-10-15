@@ -22,7 +22,7 @@ function addSubmitNewMountain() {
           typical_weather: searchData.typical_weather,
           latitude: Number(searchData.latitude),
           longitude: Number(searchData.longitude),
-          image_url: "img/" + searchData.image_url,
+          image_url: searchData.image_url,
         };
 
         const response = await fetch("api/mountains", {
@@ -180,7 +180,7 @@ export default function addNewMountainsListener() {
 
             <div class="mb-3">
               <label for="image" class="form-label">
-                Image File Name
+                Image URL
               </label>
               <input
                 type="text"

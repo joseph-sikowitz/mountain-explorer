@@ -116,7 +116,7 @@ function createEditForm(result) {
 
             <div class="mb-3">
               <label for="longitude" class="form-label">
-                Image
+                Image URL
               </label>
               <input
                 type="text"
