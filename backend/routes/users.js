@@ -1,4 +1,13 @@
 // Author: Thai Ken Yong
+// User routes implement CRUD operations for the users collection:
+// CREATE - Register a new user
+// READ   - Log in and retrieve a user's profile
+// UPDATE - Update a user's password
+// DELETE - Delete a user account and the user's associated favorites
+//
+// Note: Passwords are stored in plain text for this course project because
+// password hashing and full authentication were not required by the project requirements.
+
 import express from "express";
 import db from "../database/db.js";
 
@@ -128,7 +137,7 @@ router.get("/:email", async (req, res) => {
   }
 });
 
-// Update a user's password
+// PUT /api/users/:email/password - UPDATE a user's password
 router.put("/:email/password", async (req, res) => {
   try {
     const { password } = req.body;
@@ -170,7 +179,7 @@ router.put("/:email/password", async (req, res) => {
   }
 });
 
-// Delete a user's account and favorites
+// DELETE /api/users/:email - DELETE a user's account and favorites
 router.delete("/:email", async (req, res) => {
   try {
     const usersCollection = await database.getCollection("users");
