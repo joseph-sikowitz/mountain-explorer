@@ -1,3 +1,4 @@
+// Author: Thai Ken Yong
 const mountainMessage = document.querySelector("#mountain-message");
 const mountainName = document.querySelector("#mountain-name");
 const mountainDetails = document.querySelector("#mountain-details");

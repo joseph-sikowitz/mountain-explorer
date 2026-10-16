@@ -1,3 +1,4 @@
+// Author: Thai Ken Yong
 const favoritesMessage = document.querySelector("#favorites-message");
 const favoritesResults = document.querySelector("#favorites-results");
 
@@ -184,7 +185,7 @@ async function displayFavorites(favorites) {
       console.error("Error displaying favorite:", error);
 
       favoritesMessage.textContent =
-        "Unable to load some favorite information.";
+        "One or more trails in your favorites are no longer available and cannot be displayed.";
       favoritesMessage.className = "alert alert-danger";
     }
   }

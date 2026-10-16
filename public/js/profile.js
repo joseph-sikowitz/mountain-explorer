@@ -1,3 +1,4 @@
+// Author: Thai Ken Yong
 // Get the email of the user who logged in
 const userEmail = sessionStorage.getItem("userEmail");
 const profileMessage = document.querySelector("#profile-message");

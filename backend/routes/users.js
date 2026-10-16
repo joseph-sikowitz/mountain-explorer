@@ -1,3 +1,4 @@
+// Author: Thai Ken Yong
 import express from "express";
 import db from "../database/db.js";
 
@@ -169,11 +170,13 @@ router.put("/:email/password", async (req, res) => {
   }
 });
 
-// Delete a user's account
+// Delete a user's account and favorites
 router.delete("/:email", async (req, res) => {
   try {
     const usersCollection = await database.getCollection("users");
+    const favoritesCollection = await database.getCollection("favorites");
 
+    // Delete the user
     const result = await usersCollection.deleteOne({
       email: req.params.email,
     });
@@ -183,6 +186,11 @@ router.delete("/:email", async (req, res) => {
         error: "User not found",
       });
     }
+
+    // Delete all favorites belonging to the user
+    await favoritesCollection.deleteMany({
+      email: req.params.email,
+    });
 
     res.status(200).json({
       message: "Account deleted successfully",

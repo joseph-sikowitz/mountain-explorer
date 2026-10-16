@@ -1,3 +1,4 @@
+// Author: Thai Ken Yong
 const searchForm = document.querySelector("#mountain-search-form");
 const searchMessage = document.querySelector("#search-message");
 const mountainResults = document.querySelector("#mountain-results");

@@ -1,3 +1,4 @@
+// Author: Thai Ken Yong
 // logout.js share use with other html pages
 const userEmail = sessionStorage.getItem("userEmail");
 

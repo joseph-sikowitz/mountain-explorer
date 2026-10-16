@@ -1,3 +1,4 @@
+// Author: Thai Ken Yong
 // List of countries for the registration form
 const countries = [
   "Afghanistan",
