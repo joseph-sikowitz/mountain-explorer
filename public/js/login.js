@@ -1,3 +1,4 @@
+// Author: Thai Ken Yong
 const loginForm = document.querySelector("#login-form");
 const loginMessage = document.querySelector("#login-message");
 

@@ -1,3 +1,10 @@
+// Author: Thai Ken Yong
+// Favorite routes implement CRUD operations for the favorites collection:
+// CREATE - Add a trail to a user's favorites
+// READ   - Retrieve a user's saved favorites
+// UPDATE - Update favorite status, planned hike date and personal notes
+// DELETE - Remove a trail from the user's favorites
+
 import express from "express";
 import { ObjectId } from "mongodb";
 import db from "../database/db.js";

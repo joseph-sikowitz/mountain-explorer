@@ -1,3 +1,4 @@
+// Author: Thai Ken Yong
 const userEmail = sessionStorage.getItem("userEmail");
 const passwordForm = document.querySelector("#password-form");
 const passwordMessage = document.querySelector("#password-message");
