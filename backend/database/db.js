@@ -1,3 +1,8 @@
+/*
+  Author: Joseph Sikowitz
+  October 2026
+*/
+
 import dotenv from "dotenv";
 import { MongoClient } from "mongodb";
 

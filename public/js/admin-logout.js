@@ -1,3 +1,8 @@
+/*
+  Author: Joseph Sikowitz
+  October 2026
+*/
+
 const userRole = sessionStorage.getItem("userRole");
 
 if (userRole !== "admin") {

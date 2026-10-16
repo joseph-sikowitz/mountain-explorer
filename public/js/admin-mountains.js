@@ -1,3 +1,8 @@
+/*
+  Author: Joseph Sikowitz
+  October 2026
+*/
+
 import addNewMountainsListener from "./admin-mountains-new.js";
 import addEditMountainsListener from "./admin-mountains-edit.js";
 
