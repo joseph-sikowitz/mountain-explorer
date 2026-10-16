@@ -181,7 +181,7 @@ async function createEditForm(result) {
         alertInsert.className =
           "alert alert-success alert-dismissible fade show mt-2";
         alertInsert.innerHTML =
-          'Updated mountain. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+          'Updated trail. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
       } catch (error) {
         console.error(error);
 
@@ -195,7 +195,7 @@ async function createEditForm(result) {
         alertInsert.className =
           "alert alert-danger alert-dismissible fade show mt-2";
         alertInsert.innerHTML =
-          'Error updating mountain. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+          'Error updating trail. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
       }
     });
 }
