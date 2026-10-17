@@ -161,21 +161,27 @@ Mountain Explorer was created with the following limitations recognized as out o
 
 ## Screenshots
 
-![Mountain Explorer Homepage](docs/web_pages_screenshots/mountain-explorer-homepage-screenshot.gif "Homepage")
+#### Homepage
+![Mountain Explorer Homepage](docs/web_pages_screenshots/mountain-explorer-homepage-screenshot.gif)
 
 ### User Interface
 
-![Mountain Explorer User Registration](docs/web_pages_screenshots/user-create-account-example.jpg "User Registration")
+#### User Registration
+![Mountain Explorer User Registration](docs/web_pages_screenshots/user-create-account-example.jpg)
 
-![Mountain Explorer User Login](docs/web_pages_screenshots/user-login.png "User Login")
+#### User Login
+![Mountain Explorer User Login](docs/web_pages_screenshots/user-login.png) 
 
-![Mountain Explorer User Favorites](docs/web_pages_screenshots/user-favorites-example.jpg "User Favorites")
+#### User Favorites
+![Mountain Explorer User Favorites](docs/web_pages_screenshots/user-favorites-example.jpg)
 
 ### Administrator Interface
 
-![Mountain Explorer Administrator Add Mountain](docs/web_pages_screenshots/admin-add-mtn-example.jpg "Add Mountain")
+#### Add Mountain
+![Mountain Explorer Administrator Add Mountain](docs/web_pages_screenshots/admin-add-mtn-example.jpg)
 
-![Mountain Explorer Administrator Edit Mountain](docs/web_pages_screenshots/admin-edit-mtn-example.jpg "Edit Mountain")
+#### Edit Mountain
+![Mountain Explorer Administrator Edit Mountain](docs/web_pages_screenshots/admin-edit-mtn-example.jpg)
 
 ## Installation and Setup
 
