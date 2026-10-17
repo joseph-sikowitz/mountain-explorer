@@ -55,7 +55,7 @@ The application supports both regular users and administrators. Regular users ca
 
 ## Features
 
-### User Features
+### User Features (Ken)
 
 - Create a user account
 - Log in to an existing account
@@ -72,7 +72,7 @@ The application supports both regular users and administrators. Regular users ca
 - Add or update personal notes
 - Remove trails from favorites
 
-### Administrator Features
+### Administrator Features (Joseph)
 
 - Administrator login
 - Search and view mountain information
@@ -148,8 +148,8 @@ CRUD operations for each collection are enabled by the following routes:
 
 The Render deployed version of that app has at least 1,000 records in each collection. To check mountain and trail counts via the API, use the following endpoints:
 
-- [https://mountain-explorer-4e5n.onrender.com/api/mountains/count]
-- [https://mountain-explorer-4e5n.onrender.com/api/trails/count]
+- https://mountain-explorer-4e5n.onrender.com/api/mountains/count
+- https://mountain-explorer-4e5n.onrender.com/api/trails/count
 
 ## Limitations
 
@@ -161,21 +161,21 @@ Mountain Explorer was created with the following limitations recognized as out o
 
 ## Screenshots
 
-![Mountain Explorer Homepage](docs/web_pages_screenshots/mountain-explorer-homepage-screenshot.gif)
+![Mountain Explorer Homepage](docs/web_pages_screenshots/mountain-explorer-homepage-screenshot.gif "Homepage")
 
 ### User Interface
 
-![Mountain Explorer User Registration](docs/web_pages_screenshots/user-create-account-example.jpg)
+![Mountain Explorer User Registration](docs/web_pages_screenshots/user-create-account-example.jpg "User Registration")
 
-![Mountain Explorer User Login](docs/web_pages_screenshots/user-login.png)
+![Mountain Explorer User Login](docs/web_pages_screenshots/user-login.png "User Login")
 
-![Mountain Explorer User Favorites](docs/web_pages_screenshots/user-favorites-example.jpg)
+![Mountain Explorer User Favorites](docs/web_pages_screenshots/user-favorites-example.jpg "User Favorites")
 
 ### Administrator Interface
 
-![Mountain Explorer Administrator Add Mountain](docs/web_pages_screenshots/admin-add-mtn-example.jpg)
+![Mountain Explorer Administrator Add Mountain](docs/web_pages_screenshots/admin-add-mtn-example.jpg "Add Mountain")
 
-![Mountain Explorer Administrator Edit Mountain](docs/web_pages_screenshots/admin-edit-mtn-example.jpg)
+![Mountain Explorer Administrator Edit Mountain](docs/web_pages_screenshots/admin-edit-mtn-example.jpg "Edit Mountain")
 
 ## Installation and Setup
 
@@ -228,7 +228,7 @@ The application will run locally using the port configured by the application.
 
 Open the local application in a web browser.
 
-[PLACEHOLDER - Verify the local URL/port used for development, for example `http://localhost:3000`.]
+For example `http://localhost:3000`.
 
 ## Generative AI Usage
 
