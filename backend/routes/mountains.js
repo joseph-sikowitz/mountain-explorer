@@ -126,6 +126,10 @@ mountainsRouter.get("/mountains/:id", async (req, res) => {
     const record = await collection.findOne({
       _id: new ObjectId(req.params.id),
     });
+    // ADDED: return 404 if no mountain has this ID 
+    if (!record) {
+      return res.status(404).json({ error: "Mountain not found" });
+    }
     return res.status(200).json(record);
   } catch (error) {
     console.error("GET error for /api/mountains/:id: ", error);
