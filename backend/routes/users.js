@@ -71,7 +71,7 @@ router.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
     // Check that email and password were provided
-    if (!email || !password) {
+    if (typeof email !== "string" || typeof password !== "string") { //users.js /login: email and password weren't type-checked, so sending
       return res.status(400).json({
         error: "Email and password are required",
       });
